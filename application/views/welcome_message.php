@@ -71,6 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to a sample twitter web app</h1>
 
 	<div id="body">
+	<p> This app works perfectly on local server. But hashtag feature does not work on heroku. I could not fix it. But it works fine on local server. </p> 
 	
 		<p>The web application you are looking at is being created as a part of muktosoft-surecash recruitement exam .</p>
 
