@@ -71,10 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to a sample twitter web app</h1>
 
 	<div id="body">
-	<ul>
-		<li><a href= "/Active"> Active session </a></li>
-
-	</ul>
+	
 		<p>The web application you are looking at is being created as a part of muktosoft-surecash recruitement exam .</p>
 
 		<p>If you want to check activity then go to "https://muktosoft-hasan.herokuapp.com/active?twitter_id=your desire name&time_span=hour or day"
