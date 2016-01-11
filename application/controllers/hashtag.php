@@ -76,13 +76,13 @@
            
             $uniqueHashtags= array_count_values($hashtags);
             arsort($uniqueHashtags);
-            print_r($uniqueHashtags);
+            //print_r($uniqueHashtags);
             $z=$n;
             $result= array();
 
             while (list($key, $val) = each($uniqueHashtags))
             {
-                echo "$key => $val<br>";
+                //echo "$key => $val<br>";
                 $result[''.$key]=  $val;
                 
                 if($z==1)
