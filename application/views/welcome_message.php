@@ -68,22 +68,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+	<h1>Welcome to a sample twitter web app</h1>
 
 	<div id="body">
 	<ul>
 		<li><a href= "/Active"> Active session </a></li>
 
 	</ul>
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
+		<p>The web application you are looking at is being created as a part of muktosoft-surecash recruitement exam .</p>
 
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
+		<p>If you want to check activity then go to "https://muktosoft-hasan.herokuapp.com/active?twitter_id=your desire name&time_span=hour or day"
+		 after putting your desired twitter id and time span in the respective field.</p>
+		
 
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+		<p>If you want to check frequency of hashtag for a specific user then go to
+		"https://muktosoft-hasan.herokuapp.com/hashtag?twitter_id=your desired id&n= number of hashtag "
+		after giving your desired twitter id and number of hashtags in the respective fields</p>
+		
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
