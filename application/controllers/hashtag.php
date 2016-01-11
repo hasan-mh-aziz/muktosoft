@@ -1,6 +1,6 @@
 <?php
     
-    class hashtag extends CI_Controller{
+    class Hashtag extends CI_Controller{
 
     	public function index( ){
     		
