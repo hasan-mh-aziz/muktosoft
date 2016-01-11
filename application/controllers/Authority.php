@@ -1,12 +1,12 @@
 <?php
     
-    class hashtag extends CI_Controller{
+    class Authority extends CI_Controller{
 
     	public function index( ){
     		
 
 			$twitter_id=$_GET['twitter_id'];
-			$n=$_GET['n'];
+			$testTweet=$_GET['tweet'];
 
             $name= $twitter_id;
 
@@ -61,42 +61,65 @@
 
             $obj= json_decode($json);
             $total_tweet=count($obj) ;
-            $hashtags=array();
+            $tweetsText=array();
+
+            //frequency of every word used in last 200 tweets of the user are will stored in uniquewords.
 
             for($x=0; $x< $total_tweet; $x++){
 
-                $hashtagCount= count($obj[$x]->entities->hashtags);
+                $string = $obj[$x]->text;
+                $token = strtok($string, " ");
 
-                for($y=0; $y< $hashtagCount; $y++){
-                    array_push($hashtags, $obj[$x]->entities->hashtags[$y]->text);
-                }
+                while ($token !== false)
+                {
+                    array_push($tweetsText,$token);
+                    $token = strtok(" ");
+                } 
+
+                //array_push($tweetsText,$obj[$x]->text);
+
+                
                 
             }
 
            
-            $uniqueHashtags= array_count_values($hashtags);
-            arsort($uniqueHashtags);
-            //print_r($uniqueHashtags);
-            $z=$n;
-            $result= array();
+            
+            $uniqueWords= array_count_values($tweetsText);
+            //print_r($uniqueWords);
 
-            while (list($key, $val) = each($uniqueHashtags))
+            $countWordPresent= 0;
+            $countWordNotPresent= 0;
+
+            $string=$testTweet;
+            $token = strtok($string, " ");
+
+
+
+            while ($token !== false)
             {
-                //echo "$key => $val<br>";
-                $result[''.$key]=  $val;
-                
-                if($z==1)
-                    break;
-                else 
-                    $z--;
-            }          
+                if (array_key_exists("$token",$uniqueWords))
+                {
+                  $countWordPresent++;
+                }
+                else
+                {
+                  $countWordNotPresent++;
+                }
+                $token = strtok(" ");
+            } 
 
-            
+            $probability= $countWordPresent/($countWordNotPresent+$countWordPresent);
+
             //$result=  array(''.$maxHour=> $maxHourCount );
-            
 
-            $jsonResult= json_encode($result);
-            echo $jsonResult;              
+            $result= array();
+            $result['twitter_id']=  $twitter_id;
+            $result['tweet']=  $testTweet;
+            $result['probability']=  $probability ;
+
+
+           $jsonResult= json_encode($result);
+            print_r($jsonResult);              
 
                 
         }

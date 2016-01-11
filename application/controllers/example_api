@@ -1,8 +1,0 @@
-<?php
-    require(APPPATH'.libraries/REST_Controller.php');
-    
-    class exaple_api extends REST_Controller{
-    	
-    }
-    
-?>
